@@ -510,7 +510,7 @@ menu(){
 	red "=================================="
 	echo "                           "
 	green "1. root/ssh登录/改密码/ssh端口"
-	green "2. 开启端口禁用防火墙
+	green "2. 开启端口禁用防火墙"
 	green "3. tcp调优"
 	green "4. acme一键注册证书"
 	green "5. 安装x-ui"
