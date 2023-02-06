@@ -515,7 +515,7 @@ menu(){
 	green "4. acme一键注册证书"
 	green "5. 安装x-ui"
 	green "6. 安装Docker"
-	green "7. 安装Alist
+	green "7. 安装Alist"
 	green "8. 卸载程序"
 	green "0. 退出"
 	echo "         "
