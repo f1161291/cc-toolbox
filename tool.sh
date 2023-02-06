@@ -255,6 +255,22 @@ check_80(){
     fi
 }
 
+open_ports(){
+    systemctl stop firewalld.service 2>/dev/null
+    systemctl disable firewalld.service 2>/dev/null
+    setenforce 0 2>/dev/null
+    ufw disable 2>/dev/null
+    iptables -P INPUT ACCEPT 2>/dev/null
+    iptables -P FORWARD ACCEPT 2>/dev/null
+    iptables -P OUTPUT ACCEPT 2>/dev/null
+    iptables -t nat -F 2>/dev/null
+    iptables -t mangle -F 2>/dev/null
+    iptables -F 2>/dev/null
+    iptables -X 2>/dev/null
+    netfilter-persistent save 2>/dev/null
+    green "VPS的防火墙端口已放行！"
+}
+
 acme_standalone(){
     [[ -z $(~/.acme.sh/acme.sh -v 2>/dev/null) ]] && red "未安装acme.sh, 无法执行操作" && exit 1
     check_80
@@ -493,21 +509,23 @@ menu(){
 	red "=================================="
 	echo "                           "
 	green "1. root/ssh登录/改密码/ssh端口"
-	green "2. tcp调优"
-        green "3. acme一键注册证书"
-	green "4. 安装x-ui"
-        green "5. 安装Docker"
-        green "6. 卸载程序"
+        green "2. 开启端口禁用防火墙
+	green "3. tcp调优"
+        green "4. acme一键注册证书"
+	green "5. 安装x-ui"
+        green "6. 安装Docker"
+        green "7. 卸载程序"
 	green "0. 退出"
 	echo "         "
 	read -p "请输入数字:" NumberInput
 	case "$NumberInput" in
 		1) root_user ;;
-		2) tcp_up ;;
-		3) acme_rg ;;
-		4) install_xui ;;
-                5) 7) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun ;;
-                6) rm -rf /root/tool.sh && read -p "回车重置变量:" NumberInput ;;
+		2) open_ports ;;
+		3) tcp_up ;;
+		4) acme_rg ;;
+		5) install_xui ;;
+                6) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun ;;
+                7) rm -rf /root/tool.sh && read -p "回车重置变量:" NumberInput ;;
 		0) exit 1 ;;
 	esac
 }
