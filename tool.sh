@@ -80,6 +80,22 @@ root_user(){
   back2menu
 }
 
+open_ports(){
+    systemctl stop firewalld.service 2>/dev/null
+    systemctl disable firewalld.service 2>/dev/null
+    setenforce 0 2>/dev/null
+    ufw disable 2>/dev/null
+    iptables -P INPUT ACCEPT 2>/dev/null
+    iptables -P FORWARD ACCEPT 2>/dev/null
+    iptables -P OUTPUT ACCEPT 2>/dev/null
+    iptables -t nat -F 2>/dev/null
+    iptables -t mangle -F 2>/dev/null
+    iptables -F 2>/dev/null
+    iptables -X 2>/dev/null
+    netfilter-persistent save 2>/dev/null
+    green "VPS的防火墙端口已放行！"
+}
+
 install_xui(){
 bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 yellow "x-ui安装完成"
@@ -253,22 +269,6 @@ check_80(){
             exit 1
         fi
     fi
-}
-
-open_ports(){
-    systemctl stop firewalld.service 2>/dev/null
-    systemctl disable firewalld.service 2>/dev/null
-    setenforce 0 2>/dev/null
-    ufw disable 2>/dev/null
-    iptables -P INPUT ACCEPT 2>/dev/null
-    iptables -P FORWARD ACCEPT 2>/dev/null
-    iptables -P OUTPUT ACCEPT 2>/dev/null
-    iptables -t nat -F 2>/dev/null
-    iptables -t mangle -F 2>/dev/null
-    iptables -F 2>/dev/null
-    iptables -X 2>/dev/null
-    netfilter-persistent save 2>/dev/null
-    green "VPS的防火墙端口已放行！"
 }
 
 acme_standalone(){
