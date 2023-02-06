@@ -81,19 +81,20 @@ root_user(){
 }
 
 open_ports(){
-systemctl stop firewalld.service 2>/dev/null
-systemctl disable firewalld.service 2>/dev/null
-setenforce 0 2>/dev/null
-ufw disable 2>/dev/null
-iptables -P INPUT ACCEPT 2>/dev/null
-iptables -P FORWARD ACCEPT 2>/dev/null
-iptables -P OUTPUT ACCEPT 2>/dev/null
-iptables -t nat -F 2>/dev/null
-iptables -t mangle -F 2>/dev/null
-iptables -F 2>/dev/null
-iptables -X 2>/dev/null
-netfilter-persistent save 2>/dev/null
-green "VPS的防火墙端口已放行！"
+  systemctl stop firewalld.service 2>/dev/null
+  systemctl disable firewalld.service 2>/dev/null
+  setenforce 0 2>/dev/null
+  ufw disable 2>/dev/null
+  iptables -P INPUT ACCEPT 2>/dev/null
+  iptables -P FORWARD ACCEPT 2>/dev/null
+  iptables -P OUTPUT ACCEPT 2>/dev/null
+  iptables -t nat -F 2>/dev/null
+  iptables -t mangle -F 2>/dev/null
+  iptables -F 2>/dev/null
+  iptables -X 2>/dev/null
+  netfilter-persistent save 2>/dev/null
+  green "VPS的防火墙端口已放行！"
+  back2menu
 }
 
 install_xui(){
@@ -509,13 +510,13 @@ menu(){
 	red "=================================="
 	echo "                           "
 	green "1. root/ssh登录/改密码/ssh端口"
-        green "2. 开启端口禁用防火墙
+	green "2. 开启端口禁用防火墙
 	green "3. tcp调优"
-        green "4. acme一键注册证书"
+	green "4. acme一键注册证书"
 	green "5. 安装x-ui"
-        green "6. 安装Docker"
-        green "7. 安装Alist
-        green "8. 卸载程序"
+	green "6. 安装Docker"
+	green "7. 安装Alist
+	green "8. 卸载程序"
 	green "0. 退出"
 	echo "         "
 	read -p "请输入数字:" NumberInput
