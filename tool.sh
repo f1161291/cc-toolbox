@@ -514,9 +514,10 @@ menu(){
 	green "3. acme一键注册证书"
 	green "4. 安装Docker"
 	green "5. 安装Alist"
-	green "6. 安装x-ui"
-	green "7. tcp调优"
-	green "8. 卸载程序"
+	green "6. 安装小雅"
+	green "7. 安装x-ui"
+	green "8. tcp调优"
+	green "9. 卸载程序"
 	green "0. 退出"
 	echo "         "
 	read -p "请输入数字:" NumberInput
@@ -526,6 +527,7 @@ menu(){
 		3) acme_rg ;;
 		4) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun ;;
 		5) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
+		6) curl -s http://docker.xiaoya.pro/update_xiaoya.sh | bash ;;
                 6) install_xui ;;
                 7) tcp_up ;; 
                 8) rm -rf /root/tool.sh && read -p "回车重置变量:" NumberInput ;;
