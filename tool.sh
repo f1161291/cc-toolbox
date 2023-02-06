@@ -528,9 +528,9 @@ menu(){
 		4) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun ;;
 		5) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
 		6) curl -s http://docker.xiaoya.pro/update_xiaoya.sh | bash ;;
-                6) install_xui ;;
-                7) tcp_up ;; 
-                8) rm -rf /root/tool.sh && read -p "回车重置变量:" NumberInput ;;
+                7) install_xui ;;
+                8) tcp_up ;; 
+                9) rm -rf /root/tool.sh && read -p "回车重置变量:" NumberInput ;;
 		0) exit 1 ;;
 	esac
 }
