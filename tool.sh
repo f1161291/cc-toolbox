@@ -514,7 +514,8 @@ menu(){
         green "4. acme一键注册证书"
 	green "5. 安装x-ui"
         green "6. 安装Docker"
-        green "7. 卸载程序"
+        green "7. 安装Alist
+        green "8. 卸载程序"
 	green "0. 退出"
 	echo "         "
 	read -p "请输入数字:" NumberInput
@@ -525,7 +526,8 @@ menu(){
 		4) acme_rg ;;
 		5) install_xui ;;
                 6) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun ;;
-                7) rm -rf /root/tool.sh && read -p "回车重置变量:" NumberInput ;;
+                7) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
+                8) rm -rf /root/tool.sh && read -p "回车重置变量:" NumberInput ;;
 		0) exit 1 ;;
 	esac
 }
