@@ -511,11 +511,11 @@ menu(){
 	echo "                           "
 	green "1. root/ssh登录/改密码/ssh端口"
 	green "2. 开启端口禁用防火墙"
-	green "3. tcp调优"
-	green "4. acme一键注册证书"
-	green "5. 安装x-ui"
-	green "6. 安装Docker"
-	green "7. 安装Alist"
+	green "3. acme一键注册证书"
+	green "4. 安装Docker"
+	green "5. 安装Alist"
+	green "6. 安装x-ui"
+	green "7. tcp调优"
 	green "8. 卸载程序"
 	green "0. 退出"
 	echo "         "
@@ -523,11 +523,11 @@ menu(){
 	case "$NumberInput" in
 		1) root_user ;;
 		2) open_ports ;;
-		3) tcp_up ;;
-		4) acme_rg ;;
-		5) install_xui ;;
-                6) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun ;;
-                7) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
+		3) acme_rg ;;
+		4) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun ;;
+		5) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
+                6) install_xui ;;
+                7) tcp_up ;; 
                 8) rm -rf /root/tool.sh && read -p "回车重置变量:" NumberInput ;;
 		0) exit 1 ;;
 	esac
