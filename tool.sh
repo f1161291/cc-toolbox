@@ -98,7 +98,6 @@ open_ports(){
 }
 
 speedtest(){
-    clear
     echo ""
     echo -e " ${GREEN}1.${PLAIN} VPS测试 (misakabench)"
     echo -e " ${GREEN}2.${PLAIN} VPS测试 (bench.sh)"
