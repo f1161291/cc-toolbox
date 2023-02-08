@@ -98,6 +98,7 @@ open_ports(){
 }
 
 speedtest(){
+    clear
     echo ""
     echo -e " ${GREEN}1.${PLAIN} VPS测试 (misakabench)"
     echo -e " ${GREEN}2.${PLAIN} VPS测试 (bench.sh)"
@@ -118,7 +119,7 @@ speedtest(){
         5) bash <(wget -qO- --no-check-certificate https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh) ;;
         6) bash <(curl -L -s https://raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh) ;;
         7) bash <(curl -Lso- https://git.io/superspeed.sh) ;;
-        *) back1menu ;;
+        *) back2menu ;;
     esac
 }
 
