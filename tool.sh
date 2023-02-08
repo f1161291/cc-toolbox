@@ -97,6 +97,31 @@ open_ports(){
   back2menu
 }
 
+speedtest(){
+    echo ""
+    echo -e " ${GREEN}1.${PLAIN} VPS测试 (misakabench)"
+    echo -e " ${GREEN}2.${PLAIN} VPS测试 (bench.sh)"
+    echo -e " ${GREEN}3.${PLAIN} VPS测试 (superbench)"
+    echo -e " ${GREEN}4.${PLAIN} VPS测试 (lemonbench)"
+    echo -e " ${GREEN}5.${PLAIN} VPS测试 (融合怪全测)"
+    echo -e " ${GREEN}6.${PLAIN} 流媒体检测"
+    echo -e " ${GREEN}7.${PLAIN} 三网测速"
+    echo " -------------"
+    echo -e " ${GREEN}0.${PLAIN} 返回主菜单"
+    echo ""
+    read -rp " 请输入选项 [0-7]:" menuInput
+    case $menuInput in
+        1) bash <(curl -Lso- https://cdn.jsdelivr.net/gh/misaka-gh/misakabench@master/misakabench.sh) ;;
+        2) wget -qO- bench.sh | bash ;;
+        3) wget -qO- --no-check-certificate https://raw.githubusercontent.com/oooldking/script/master/superbench.sh | bash ;;
+        4) curl -fsL https://ilemonra.in/LemonBenchIntl | bash -s fast ;;
+        5) bash <(wget -qO- --no-check-certificate https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh) ;;
+        6) bash <(curl -L -s https://raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh) ;;
+        7) bash <(curl -Lso- https://git.io/superspeed.sh) ;;
+        *) back1menu ;;
+    esac
+}
+
 install_xui(){
 bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
 yellow "x-ui安装完成"
@@ -517,7 +542,8 @@ menu(){
 	green "6. 安装小雅"
 	green "7. 安装x-ui"
 	green "8. tcp调优"
-	green "9. 卸载程序"
+	green "9. 三网测速"
+	green "10. 卸载程序"
 	green "0. 退出"
 	echo "         "
 	read -p "请输入数字:" NumberInput
@@ -529,8 +555,9 @@ menu(){
 		5) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
 		6) curl -s http://docker.xiaoya.pro/update_xiaoya.sh | bash ;;
                 7) install_xui ;;
-                8) tcp_up ;; 
-                9) rm -rf /root/tool.sh && read -p "回车重置变量:" NumberInput ;;
+                8) tcp_up ;;
+		9）speedtest ;;
+                10) rm -rf /root/tool.sh && read -p "回车重置变量:" NumberInput ;;
 		0) exit 1 ;;
 	esac
 }
