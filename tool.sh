@@ -538,13 +538,13 @@ menu(){
 	green "1. root/ssh登录/改密码/ssh端口"
 	green "2. 开启端口禁用防火墙"
 	green "3. acme一键注册证书"
-	green "4. 安装Docker"
-	green "5. 安装Alist"
-	green "6. 安装小雅"
+        green "4. Oracle DD系统"
+	green "5. 安装Docker"
+	green "6. 安装Alist"
 	green "7. 安装x-ui"
-	green "8. tcp调优"
+	green "8. 安装小雅"
         green "9. 性能测试"
-	green "10. 卸载程序"
+	green "10. tcp调优"
 	green "0. 退出"
 	echo "         "
 	read -p "请输入数字:" NumberInput
@@ -552,13 +552,13 @@ menu(){
 		1) root_user ;;
 		2) open_ports ;;
 		3) acme_rg ;;
-		4) apt install docker.io -y ;;
-		5) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
-		6) curl -s http://docker.xiaoya.pro/update_xiaoya.sh | bash ;;
+		4) bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p cc20130401 ;;
+		5) apt install docker.io -y ;;
+		6) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
                 7) install_xui ;;
-                8) tcp_up ;;
+                8) curl -s http://docker.xiaoya.pro/update_xiaoya.sh | bash ;;
                 9) speedtest ;;
-                10) rm -rf /root/tool.sh && read -p "回车重置变量:" NumberInput ;;
+                10) tcp_up ;; 
 		0) exit 1 ;;
 	esac
 }
