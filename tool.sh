@@ -517,7 +517,8 @@ menu(){
 	green "6. 安装小雅"
 	green "7. 安装x-ui"
 	green "8. tcp调优"
-	green "9. 卸载程序"
+        green "9. 性能测试"
+	green "10. 卸载程序"
 	green "0. 退出"
 	echo "         "
 	read -p "请输入数字:" NumberInput
@@ -530,7 +531,8 @@ menu(){
 		6) curl -s http://docker.xiaoya.pro/update_xiaoya.sh | bash ;;
                 7) install_xui ;;
                 8) tcp_up ;;
-                9) rm -rf /root/tool.sh && read -p "回车重置变量:" NumberInput ;;
+                9) bash <(wget --no-check-certificate -O- https://dl.233.mba/d/sh/superbenchpro.sh);;
+                10) rm -rf /root/tool.sh && read -p "回车重置变量:" NumberInput ;;
 		0) exit 1 ;;
 	esac
 }
