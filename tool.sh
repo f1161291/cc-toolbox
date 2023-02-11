@@ -526,12 +526,12 @@ menu(){
 		1) root_user ;;
 		2) open_ports ;;
 		3) acme_rg ;;
-		4) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun ;;
+		4) apt install docker.io ;;
 		5) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
 		6) curl -s http://docker.xiaoya.pro/update_xiaoya.sh | bash ;;
                 7) install_xui ;;
                 8) tcp_up ;;
-                9) bash <(wget --no-check-certificate -O- https://dl.233.mba/d/sh/superbenchpro.sh);;
+                9) wget -qO- --no-check-certificate https://raw.githubusercontent.com/oooldking/script/master/superbench.sh | bash ;;
                 10) rm -rf /root/tool.sh && read -p "回车重置变量:" NumberInput ;;
 		0) exit 1 ;;
 	esac
