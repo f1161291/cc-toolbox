@@ -526,7 +526,7 @@ menu(){
 		1) root_user ;;
 		2) open_ports ;;
 		3) acme_rg ;;
-		4) apt install docker.io ;;
+		4) apt install docker.io -y ;;
 		5) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
 		6) curl -s http://docker.xiaoya.pro/update_xiaoya.sh | bash ;;
                 7) install_xui ;;
