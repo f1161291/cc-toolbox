@@ -545,7 +545,6 @@ menu(){
 	green "8. 安装小雅"
         green "9. 性能测试"
 	green "10.TCP调优"
-	green "11.Clash
 	green "0. 退出"
 	echo "         "
 	read -p "请输入数字:" NumberInput
@@ -560,7 +559,6 @@ menu(){
                 8) curl -s http://docker.xiaoya.pro/update_xiaoya.sh | bash ;;
                 9) speedtest ;;
 		10) tcp_up ;; 
-                11) export url='https://gh.jwsc.eu.org/master' && bash -c "$(curl -kfsSl $url/install.sh)" && source /etc/profile &> /dev/null ;;
 		0) exit 1 ;;
 	esac
 }
