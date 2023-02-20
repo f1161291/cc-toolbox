@@ -544,7 +544,8 @@ menu(){
 	green "7. 安装x-ui"
 	green "8. 安装小雅"
         green "9. 性能测试"
-	green "10.TCP调优"
+	green "10. 青龙面板"
+	green "11. TCP调优"
 	green "0. 退出"
 	echo "         "
 	read -p "请输入数字:" NumberInput
@@ -558,7 +559,8 @@ menu(){
                 7) install_xui ;;
                 8) curl -s http://docker.xiaoya.pro/update_xiaoya.sh | bash ;;
                 9) speedtest ;;
-		10) tcp_up ;; 
+		10) wget -q https://yanyu.ltd/https://raw.githubusercontent.com/yanyuwangluo/VIP/main/Scripts/sh/ql.sh -O ql.sh && bash ql.sh ;;
+		11) tcp_up ;; 
 		0) exit 1 ;;
 	esac
 }
