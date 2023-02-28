@@ -546,7 +546,7 @@ menu(){
         green "9. 性能测试"
 	green "10. 青龙面板"
 	green "11. TCP调优"
-	green "0. 退出"
+	green "0. Oracle保活"
 	echo "         "
 	read -p "请输入数字:" NumberInput
 	case "$NumberInput" in
@@ -561,7 +561,7 @@ menu(){
                 9) speedtest ;;
 		10) wget -q https://yanyu.ltd/https://raw.githubusercontent.com/yanyuwangluo/VIP/main/Scripts/sh/ql.sh -O ql.sh && bash ql.sh ;;
 		11) tcp_up ;; 
-		0) exit 1 ;;
+		0) bash <(curl -s -L https://gist.githubusercontent.com/Ansen/e45320205faf5786d3282ac880f20bab/raw/onekey-NeverIdle.sh) ;;
 	esac
 }
 menu
