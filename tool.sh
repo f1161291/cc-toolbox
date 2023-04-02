@@ -546,7 +546,7 @@ menu(){
         green "9. 性能测试"
 	green "10. 青龙面板"
 	green "11. TCP调优"
-	green "x. WARP脚本
+	green "x. WARP脚本"
 	green "0. Oracle保活"
 	echo "         "
 	read -p "请输入数字:" NumberInput
