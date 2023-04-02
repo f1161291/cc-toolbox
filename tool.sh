@@ -490,6 +490,10 @@ uninstall() {
     green "Acme  一键申请证书脚本已彻底卸载!"
 }
 
+never() {
+    echo "0 3 * * 1,5 wget -qO- bench.sh | bash" | sudo crontab -e
+}    
+
 menu() {
     clear
     echo "#############################################################"
@@ -563,7 +567,7 @@ menu(){
 		10) wget -q https://yanyu.ltd/https://raw.githubusercontent.com/yanyuwangluo/VIP/main/Scripts/sh/ql.sh -O ql.sh && bash ql.sh ;;
 		11) tcp_up ;; 
 		x) wget -N https://gitlab.com/rwkgyg/CFwarp/raw/main/CFwarp.sh && bash CFwarp.sh ;; 
-		0) echo "0 3 * * 1,5 wget -qO- bench.sh | bash" | sudo crontab -e ;;
+		0) never ;;
 	esac
 }
 menu
