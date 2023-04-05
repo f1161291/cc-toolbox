@@ -490,10 +490,6 @@ uninstall() {
     green "Acme  一键申请证书脚本已彻底卸载!"
 }
 
-never() {
-    echo "0 3 * * 1,5 wget -qO- bench.sh | bash" | sudo crontab -e
-}    
-
 menu() {
     clear
     echo "#############################################################"
@@ -551,7 +547,7 @@ menu(){
 	green "10. 青龙面板"
 	green "11. TCP调优"
 	green "x. WARP脚本"
-	green "0. Oracle保活"
+	green "0. 极光面板"
 	echo "         "
 	read -p "请输入数字:" NumberInput
 	case "$NumberInput" in
@@ -567,7 +563,7 @@ menu(){
 		10) wget -q https://yanyu.ltd/https://raw.githubusercontent.com/yanyuwangluo/VIP/main/Scripts/sh/ql.sh -O ql.sh && bash ql.sh ;;
 		11) tcp_up ;; 
 		x) wget -N https://gitlab.com/rwkgyg/CFwarp/raw/main/CFwarp.sh && bash CFwarp.sh ;; 
-		0) never ;;
+		0) bash <(curl -fsSL https://raw.githubusercontent.com/Aurora-Admin-Panel/deploy/main/install.sh) ;;
 	esac
 }
 menu
