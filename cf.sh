@@ -6,7 +6,7 @@ tl=200
 tll=20
 tp=8443
 sl=1
-url="https://cf.xiray.cf/1bg.test"
+url="https://cf.xiray.cf/1gb.test"
 
 # 解析命令行参数
 while [[ $# -gt 0 ]]; do
