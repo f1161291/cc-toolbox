@@ -43,4 +43,4 @@ while [[ $# -gt 0 ]]; do
 done
 
 # 运行 Cloudflare 命令
-./Cloudflare -n "$n" -tl "$tl" -tll "$tll" -tp "$tp" -sl "$sl" -url "$url"
+./CloudflareST -n "$n" -tl "$tl" -tll "$tll" -tp "$tp" -sl "$sl" -url "$url"
