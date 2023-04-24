@@ -123,12 +123,6 @@ open_ports(){
     esac
 }
 
-install_xui(){
-bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh)
-yellow "x-ui安装完成"
-back2menu
-}
-
 tcp_up(){
 cat > '/etc/sysctl.conf' << EOF
 fs.file-max=1000000
@@ -557,7 +551,7 @@ menu(){
 		4) bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p 123456789 ;;
 		5) bash <(curl -sSL https://gitee.com/SuperManito/LinuxMirrors/raw/main/DockerInstallation.sh) ;;
 		6) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
-                7) install_xui ;;
+                7) bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh) ;;
                 8) curl -s http://docker.xiaoya.pro/update_xiaoya.sh | bash ;;
                 9) speedtest ;;
 		10) wget -q https://yanyu.ltd/https://raw.githubusercontent.com/yanyuwangluo/VIP/main/Scripts/sh/ql.sh -O ql.sh && bash ql.sh ;;
