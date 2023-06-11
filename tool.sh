@@ -542,6 +542,7 @@ menu(){
 	green "11. TCP调优"
 	green "x. WARP脚本"
 	green "0. 极光面板"
+ green "a. Aria2"
 	echo "         "
 	read -p "请输入数字:" NumberInput
 	case "$NumberInput" in
@@ -558,6 +559,7 @@ menu(){
 		11) tcp_up ;; 
 		x) wget -N https://gitlab.com/rwkgyg/CFwarp/raw/main/CFwarp.sh && bash CFwarp.sh ;; 
 		0) bash <(curl -fsSL https://raw.githubusercontent.com/Aurora-Admin-Panel/deploy/main/install.sh) ;;
+   a) wget -N git.io/aria2.sh && chmod +x aria2.sh && ./aria2.sh ;;
 	esac
 }
 menu
