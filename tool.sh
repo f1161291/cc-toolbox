@@ -549,7 +549,7 @@ menu(){
 		1) root_user ;;
 		2) open_ports ;;
 		3) acme_rg ;;
-		4) bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p 123456789 ;;
+		4) bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 12 -v 64 -p 123456789 ;;
 		5) bash <(curl -sSL https://gitee.com/SuperManito/LinuxMirrors/raw/main/DockerInstallation.sh) ;;
 		6) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
                 7) bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh) ;;
