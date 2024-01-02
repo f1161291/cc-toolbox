@@ -550,7 +550,7 @@ menu(){
 		2) open_ports ;;
 		3) acme_rg ;;
 		4) bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p 123456789 ;;
-		5) bash <(curl -sSL https://gitee.com/SuperManito/LinuxMirrors/raw/main/DockerInstallation.sh) ;;
+		5) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun ;;
 		6) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
                 7) bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh) ;;
                 8) curl -s http://docker.xiaoya.pro/update_xiaoya.sh | bash ;;
