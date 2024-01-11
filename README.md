@@ -13,5 +13,5 @@ wget -N --no-check-certificate https://usercontent.githubfast.com/raw/f1161291/c
 
 ## WARP
 ```shell
-wget -N --no-check-certificate https://usercontent.githubfast.com/raw/f1161291/cc-toolbox/main/tool.sh && chmod +x tool.sh && bash tool.sh
+wget -N --no-check-certificate https://usercontent.githubfast.com/raw/f1161291/cc-toolbox/main/warp.sh && chmod +x warp.sh && bash warp.sh
 ```
