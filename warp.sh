@@ -25,9 +25,9 @@ yellow() {
 # 多方式判断操作系统，如非支持的操作系统，则退出脚本
 REGEX=("debian" "ubuntu" "centos|red hat|kernel|oracle linux|alma|rocky" "'amazon linux'" "fedora" "alpine" "armbian")
 RELEASE=("Debian" "Ubuntu" "CentOS" "CentOS" "Fedora" "Alpine" "Armbian")
-PACKAGE_UPDATE=("apt-get update" "apt-get update" "yum -y update" "yum -y update" "yum -y update" "apk update -f")
-PACKAGE_INSTALL=("apt -y install" "apt -y install" "yum -y install" "yum -y install" "yum -y install" "apk add -f")
-PACKAGE_UNINSTALL=("apt -y autoremove" "apt -y autoremove" "yum -y autoremove" "yum -y autoremove" "yum -y autoremove" "apk del -f")
+PACKAGE_UPDATE=("apt-get update" "apt-get update" "yum -y update" "yum -y update" "yum -y update" "apk update -f" "apt-get update")
+PACKAGE_INSTALL=("apt -y install" "apt -y install" "yum -y install" "yum -y install" "yum -y install" "apk add -f" "apt-get install")
+PACKAGE_UNINSTALL=("apt -y autoremove" "apt -y autoremove" "yum -y autoremove" "yum -y autoremove" "yum -y autoremove" "apk del -f" "apt -y autoremove")
 
 [[ $EUID -ne 0 ]] && red "注意：请在root用户下运行脚本" && exit 1
 
@@ -653,8 +653,8 @@ check_wgcf() {
 install_wgcf() {
     # 检测系统要求，如未达到要求则打断安装
     [[ $SYSTEM == "CentOS" ]] && [[ ${OSID} -lt 7 ]] && yellow "当前系统版本：${CMD} \nWGCF-WARP模式仅支持CentOS / Almalinux / Rocky / Oracle Linux 7及以上版本的系统" && exit 1
-    [[ $SYSTEM == "Debian" ]] && [[ ${OSID} -lt 10 ]] && yellow "当前系统版本：${CMD} \nWGCF-WARP模式仅支持Debian 10及以上版本的系统" && exit 
-    [[ $SYSTEM == "Armbian" ]] && [[ ${OSID} -lt 10 ]] && yellow "当前系统版本：${CMD} \nWGCF-WARP模式仅支持Debian 10及以上版本的系统" && exit 1
+    [[ $SYSTEM == "Debian" ]] && [[ ${OSID} -lt 10 ]] && yellow "当前系统版本：${CMD} \nWGCF-WARP模式仅支持Debian 10及以上版本的系统" && exit 1
+	[[ $SYSTEM == "Armbian" ]] && [[ ${OSID} -lt 10 ]] && yellow "当前系统版本：${CMD} \nWGCF-WARP模式仅支持Debian 10及以上版本的系统" && exit 1
     [[ $SYSTEM == "Fedora" ]] && [[ ${OSID} -lt 29 ]] && yellow "当前系统版本：${CMD} \nWGCF-WARP模式仅支持Fedora 29及以上版本的系统" && exit 1
     [[ $SYSTEM == "Ubuntu" ]] && [[ ${OSID} -lt 18 ]] && yellow "当前系统版本：${CMD} \nWGCF-WARP模式仅支持Ubuntu 16.04及以上版本的系统" && exit 1
 
@@ -681,14 +681,21 @@ install_wgcf() {
     fi
     if [[ $SYSTEM == "Debian" ]]; then
         ${PACKAGE_UPDATE[int]}
-        ${PACKAGE_INSTALL[int]} sudo wget curl unzip lsb-release bc htop screen python3 iputils-ping qrencode
+        ${PACKAGE_INSTALL[int]} sudo wget curl unzip lsb-release bc htop screen python3 inetutils-ping qrencode
         echo "deb http://deb.debian.org/debian $(lsb_release -sc)-backports main" | tee /etc/apt/sources.list.d/backports.list
         ${PACKAGE_UPDATE[int]}
         ${PACKAGE_INSTALL[int]} --no-install-recommends net-tools iproute2 openresolv dnsutils wireguard-tools iptables
     fi
+    if [[ $SYSTEM == "Armbian" ]]; then
+        ${PACKAGE_UPDATE[int]}
+        ${PACKAGE_INSTALL[int]} sudo wget curl unzip lsb-release bc htop screen python3 inetutils-ping qrencode
+		echo "deb http://deb.debian.org/debian $(lsb_release -sc)-backports main" | tee /etc/apt/sources.list.d/backports.list
+		${PACKAGE_UPDATE[int]}
+        ${PACKAGE_INSTALL[int]} --no-install-recommends net-tools iproute2 openresolv dnsutils wireguard-tools iptables
+	fi
     if [[ $SYSTEM == "Ubuntu" ]]; then
         ${PACKAGE_UPDATE[int]}
-        ${PACKAGE_INSTALL[int]} sudo curl wget unzip lsb-release bc htop screen python3 iputils-ping qrencode
+        ${PACKAGE_INSTALL[int]} sudo curl wget unzip lsb-release bc htop screen python3 inetutils-ping qrencode
         ${PACKAGE_INSTALL[int]} --no-install-recommends net-tools iproute2 openresolv dnsutils wireguard-tools iptables
     fi
 
@@ -1055,7 +1062,7 @@ install_wpgo() {
         ${PACKAGE_INSTALL[int]} sudo curl wget bash grep bc htop iputils screen python3 qrencode
     else
         ${PACKAGE_UPDATE[int]}
-        ${PACKAGE_INSTALL[int]} sudo curl wget bc htop iputils-ping screen python3 qrencode
+        ${PACKAGE_INSTALL[int]} sudo curl wget bc htop inetutils-ping screen python3 qrencode
     fi
 
     # IPv4 only VPS 开启 IPv6 支持
@@ -1193,7 +1200,7 @@ install_warp_cli() {
     fi
     if [[ $SYSTEM == "Debian" ]]; then
         ${PACKAGE_UPDATE[int]}
-        ${PACKAGE_INSTALL[int]} sudo curl wget lsb-release bc htop iputils-ping screen python3 qrencode
+        ${PACKAGE_INSTALL[int]} sudo curl wget lsb-release bc htop inetutils-ping screen python3 qrencode
         [[ -z $(type -P gpg 2>/dev/null) ]] && ${PACKAGE_INSTALL[int]} gnupg
         [[ -z $(apt list 2>/dev/null | grep apt-transport-https | grep installed) ]] && ${PACKAGE_INSTALL[int]} apt-transport-https
         curl https://pkg.cloudflareclient.com/pubkey.gpg | apt-key add -
@@ -1203,7 +1210,7 @@ install_warp_cli() {
     fi
     if [[ $SYSTEM == "Ubuntu" ]]; then
         ${PACKAGE_UPDATE[int]}
-        ${PACKAGE_INSTALL[int]} sudo curl wget lsb-release bc htop iputils-ping screen python3 qrencode
+        ${PACKAGE_INSTALL[int]} sudo curl wget lsb-release bc htop inetutils-ping screen python3 qrencode
         curl https://pkg.cloudflareclient.com/pubkey.gpg | apt-key add -
         echo "deb http://pkg.cloudflareclient.com/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/cloudflare-client.list
         ${PACKAGE_UPDATE[int]}
@@ -1297,7 +1304,7 @@ install_wireproxy() {
         ${PACKAGE_INSTALL[int]} sudo curl wget bash grep bc htop iputils screen python3 qrencode wireguard-tools
     else
         ${PACKAGE_UPDATE[int]}
-        ${PACKAGE_INSTALL[int]} sudo curl wget bc htop iputils-ping screen python3 qrencode wireguard-tools
+        ${PACKAGE_INSTALL[int]} sudo curl wget bc htop inetutils-ping screen python3 qrencode wireguard-tools
     fi
 
     # 下载 WireProxy
