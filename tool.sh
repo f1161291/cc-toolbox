@@ -542,7 +542,7 @@ menu(){
 	green "11. TCP调优"
 	green "x. WARP脚本"
 	green "0. 极光面板"
- green "a. Aria2"
+        green "a. Aria2"
 	echo "         "
 	read -p "请输入数字:" NumberInput
 	case "$NumberInput" in
