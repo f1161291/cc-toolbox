@@ -540,7 +540,7 @@ menu(){
         green "9. 性能测试"
 	green "10. 青龙面板"
 	green "11. TCP调优"
-	green "x. WARP脚本"
+	green "x. 一键换源"
 	green "0. 极光面板"
         green "a. Aria2"
 	echo "         "
@@ -557,7 +557,7 @@ menu(){
                 9) bash <(wget -qO- --no-check-certificate https://gitlab.com/spiritysdx/Oracle-server-keep-alive-script/-/raw/main/oalive.sh) ;;
 		10) wget -q https://yanyu.ltd/https://raw.githubusercontent.com/yanyuwangluo/VIP/main/Scripts/sh/ql.sh -O ql.sh && bash ql.sh ;;
 		11) tcp_up ;; 
-		x) wget -N https://raw.githubusercontent.com/f1161291/cc-toolbox/main/warp.sh && chmod +x warp.sh && bash warp.sh ;; 
+		x) bash <(curl -sSL https://linuxmirrors.cn/main.sh);; 
 		0) bash <(curl -fsSL https://raw.githubusercontent.com/Aurora-Admin-Panel/deploy/main/install.sh) ;;
    a) wget -N git.io/aria2.sh && chmod +x aria2.sh && ./aria2.sh ;;
 	esac
