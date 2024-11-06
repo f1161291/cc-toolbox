@@ -536,7 +536,7 @@ menu(){
 	green "5. 安装Docker"
 	green "6. 安装Alist"
 	green "7. 安装x-ui"
-	green "8. 安装小雅"
+	green "8. 自动证书"
         green "9. 性能测试"
 	green "10. 青龙面板"
 	green "11. TCP调优"
@@ -553,7 +553,7 @@ menu(){
 		5) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun ;;
 		6) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
                 7) bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh) ;;
-                8) curl -s http://docker.xiaoya.pro/update_xiaoya.sh | bash ;;
+                8) git clone https://github.com/slobys/SSL-Renewal.git /tmp/acme && mv /tmp/acme/* /root && bash acme_2.0.sh ;;
                 9) bash <(wget -qO- --no-check-certificate https://gitlab.com/spiritysdx/Oracle-server-keep-alive-script/-/raw/main/oalive.sh) ;;
 		10) wget -q https://yanyu.ltd/https://raw.githubusercontent.com/yanyuwangluo/VIP/main/Scripts/sh/ql.sh -O ql.sh && bash ql.sh ;;
 		11) tcp_up ;; 
