@@ -553,7 +553,7 @@ menu(){
 		5) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun ;;
 		6) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
                 7) bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh) ;;
-                8) git clone https://github.com/slobys/SSL-Renewal.git /tmp/acme && mv /tmp/acme/* /root && bash acme_2.0.sh ;;
+                8) apt update -y && apt upgrady -y && apt install git -y && git clone https://github.com/slobys/SSL-Renewal.git /tmp/acme && mv /tmp/acme/* /root && bash acme_2.0.sh ;;
                 9) bash <(wget -qO- --no-check-certificate https://gitlab.com/spiritysdx/Oracle-server-keep-alive-script/-/raw/main/oalive.sh) ;;
 		10) wget -q https://yanyu.ltd/https://raw.githubusercontent.com/yanyuwangluo/VIP/main/Scripts/sh/ql.sh -O ql.sh && bash ql.sh ;;
 		11) tcp_up ;; 
