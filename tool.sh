@@ -542,7 +542,7 @@ menu(){
 	green "11. TCP调优"
 	green "x. 一键换源"
 	green "0. 极光面板"
-        green "a. 3X-UI"
+        green "a. H-UI"
 	echo "         "
 	read -p "请输入数字:" NumberInput
 	case "$NumberInput" in
@@ -559,7 +559,7 @@ menu(){
 		11) tcp_up ;; 
 		x) bash <(curl -sSL https://linuxmirrors.cn/main.sh);; 
 		0) bash <(curl -fsSL https://raw.githubusercontent.com/Aurora-Admin-Panel/deploy/main/install.sh) ;;
-   a) bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh) ;;
+   a) bash <(curl -fsSL https://raw.githubusercontent.com/jonssonyan/h-ui/main/install.sh) ;;
 	esac
 }
 menu
