@@ -96,7 +96,7 @@ open_ports(){
   green "VPS的防火墙端口已放行！"
   back2menu
 }
-
+```
  speedtest(){
     echo ""
     echo -e " ${GREEN}1.${PLAIN} VPS测试 (misakabench)"
@@ -122,6 +122,7 @@ open_ports(){
         *) exit 1 ;;
     esac
 }
+```
 
 tcp_up(){
 cat > '/etc/sysctl.conf' << EOF
@@ -187,6 +188,7 @@ yellow "$bbr"
 back2menu
 }
 
+```
 acme_rg(){
 REGEX=("debian" "ubuntu" "centos|red hat|kernel|oracle linux|alma|rocky" "'amazon linux'" "fedora")
 RELEASE=("Debian" "Ubuntu" "CentOS" "CentOS" "Fedora")
@@ -520,6 +522,7 @@ menu() {
 }
     menu
 }
+```
 
 menu(){
 	clear
@@ -531,35 +534,33 @@ menu(){
 	echo "                           "
 	green "1. root/ssh登录/改密码/ssh端口"
 	green "2. 开启端口禁用防火墙"
-	green "3. acme一键注册证书"
-        green "4. Oracle DD系统"
-	green "5. 安装Docker"
-	green "6. 安装Alist"
-	green "7. 安装x-ui"
-	green "8. 自动证书"
-        green "9. 性能测试"
-	green "10. 青龙面板"
-	green "11. TCP调优"
+    green "3. Oracle DD系统"
+	green "4. 安装Docker"
+	green "5. 安装Alist"
+	green "6. 安装x-ui"
+	green "7. 自动证书"
+    green "8. 性能测试"
+	green "9. 青龙面板"
+	green "10. TCP调优"
 	green "x. 一键换源"
 	green "0. 极光面板"
-        green "a. H-UI"
+	green "a. H-UI"
 	echo "         "
 	read -p "请输入数字:" NumberInput
 	case "$NumberInput" in
 		1) root_user ;;
 		2) open_ports ;;
-		3) acme_rg ;;
-		4) bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p 123456789 ;;
-		5) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun ;;
-		6) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
-                7) bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh) ;;
-                8) apt update -y && apt upgrade -y && apt install git -y && git clone https://github.com/slobys/SSL-Renewal.git /tmp/acme && mv /tmp/acme/* /root && bash acme_2.0.sh ;;
-                9) bash <(wget -qO- --no-check-certificate https://gitlab.com/spiritysdx/Oracle-server-keep-alive-script/-/raw/main/oalive.sh) ;;
-		10) wget -q https://yanyu.ltd/https://raw.githubusercontent.com/yanyuwangluo/VIP/main/Scripts/sh/ql.sh -O ql.sh && bash ql.sh ;;
-		11) tcp_up ;; 
+		3) bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p 123456789 ;;
+		4) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun ;;
+		5) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
+        6) bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh) ;;
+        7) apt update -y && apt upgrade -y && apt install git -y && git clone https://github.com/slobys/SSL-Renewal.git /tmp/acme && mv /tmp/acme/* /root && bash acme_2.0.sh ;;
+        8) bash <(wget -qO- --no-check-certificate https://gitlab.com/spiritysdx/Oracle-server-keep-alive-script/-/raw/main/oalive.sh) ;;
+		9) wget -q https://yanyu.ltd/https://raw.githubusercontent.com/yanyuwangluo/VIP/main/Scripts/sh/ql.sh -O ql.sh && bash ql.sh ;;
+		10) tcp_up ;; 
 		x) bash <(curl -sSL https://linuxmirrors.cn/main.sh);; 
 		0) bash <(curl -fsSL https://raw.githubusercontent.com/Aurora-Admin-Panel/deploy/main/install.sh) ;;
-   a) bash <(curl -fsSL https://raw.githubusercontent.com/jonssonyan/h-ui/main/install.sh) ;;
+        a) bash <(curl -fsSL https://raw.githubusercontent.com/jonssonyan/h-ui/main/install.sh) ;;
 	esac
 }
 menu
