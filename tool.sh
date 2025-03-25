@@ -535,7 +535,7 @@ menu(){
 	green "1. root/ssh登录/改密码/ssh端口"
 	green "2. 开启端口禁用防火墙"
     green "3. Oracle DD系统"
-	green "4. 安装Docker"
+	green "4. 安装SingBox"
 	green "5. 安装Alist"
 	green "6. 安装x-ui"
 	green "7. 自动证书"
@@ -551,7 +551,7 @@ menu(){
 		1) root_user ;;
 		2) open_ports ;;
 		3) bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p 123456789 ;;
-		4) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun ;;
+		4) bash <(wget -qO- -o- https://github.com/233boy/sing-box/raw/main/install.sh) ;;
 		5) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
         6) bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh) ;;
         7) apt update -y && apt upgrade -y && apt install git -y && git clone https://github.com/slobys/SSL-Renewal.git /tmp/acme && mv /tmp/acme/* /root && bash acme_2.0.sh ;;
