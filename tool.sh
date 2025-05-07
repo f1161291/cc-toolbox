@@ -559,7 +559,7 @@ menu(){
         8) bash <(wget -qO- --no-check-certificate https://gitlab.com/spiritysdx/Oracle-server-keep-alive-script/-/raw/main/oalive.sh) ;;
 		9) wget -q https://yanyu.ltd/https://raw.githubusercontent.com/yanyuwangluo/VIP/main/Scripts/sh/ql.sh -O ql.sh && bash ql.sh ;;
 		10) tcp_up ;; 
-		z) bash <(curl -sSL https://get.docker.com) ;;
+		z) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun  ;;
 		x) bash <(curl -sSL https://linuxmirrors.cn/main.sh);; 
 		0) bash <(curl -fsSL https://raw.githubusercontent.com/Aurora-Admin-Panel/deploy/main/install.sh) ;;
         a) bash <(curl -fsSL https://raw.githubusercontent.com/jonssonyan/h-ui/main/install.sh) ;;
