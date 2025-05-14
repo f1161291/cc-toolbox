@@ -561,7 +561,7 @@ menu(){
         8) bash <(wget -qO- --no-check-certificate https://gitlab.com/spiritysdx/Oracle-server-keep-alive-script/-/raw/main/oalive.sh) ;;
 		9) wget -q https://yanyu.ltd/https://raw.githubusercontent.com/yanyuwangluo/VIP/main/Scripts/sh/ql.sh -O ql.sh && bash ql.sh ;;
 		10) tcp_up ;; 
-		d) bash -c "$(curl -sSLf https://ailg.ggbond.org/cd2.sh)" ;;
+		d) bash <(curl -sSLf https://ailg.ggbond.org/cd2.sh) ;;
 		c)  wget -N git.io/aria2.sh && chmod +x aria2.sh && bash aria2.sh ;;         
 		z) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun  ;;
 		x) bash <(curl -sSL https://linuxmirrors.cn/main.sh);; 
