@@ -546,7 +546,7 @@ menu(){
 	green "0. 极光面板"
 	green "a. H-UI"
  	green "c. aria2安装"
-		green " d. cd2 安装
+		green " d. cd2 安装 "
 	green "z. Docker 安装"
 	echo "         "
 	read -p "请输入数字:" NumberInput
