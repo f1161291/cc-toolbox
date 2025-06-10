@@ -534,19 +534,20 @@ menu(){
 	echo "                           "
 	green "1. root/ssh登录/改密码/ssh端口"
 	green "2. 开启端口禁用防火墙"
-    green "3. Oracle DD系统"
+	green "3. Oracle DD系统"
 	green "4. 安装Hystria2"
 	green "5. 安装Alist"
 	green "6. 安装x-ui"
 	green "7. 自动证书"
-    green "8. 性能测试"
+	green "8. 性能测试"
 	green "9. 青龙面板"
 	green "10. TCP调优"
 	green "x. 一键换源"
 	green "0. 极光面板"
 	green "a. H-UI"
- 	green "c. aria2安装"
-		green " d. cd2 安装 "
+  	green "b. tailscale"
+ 	green "c. aria2 安装"
+ 	green "d. cd2 安装 "
 	green "z. Docker 安装"
 	echo "         "
 	read -p "请输入数字:" NumberInput
@@ -556,17 +557,19 @@ menu(){
 		3) bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/MoeClub/Note/master/InstallNET.sh') -d 10 -v 64 -p 123456789 ;;
 		4) wget -N --no-check-certificate https://raw.githubusercontent.com/Misaka-blog/hysteria-install/main/hy2/hysteria.sh && bash hysteria.sh ;;
 		5) curl -fsSL "https://alist.nn.ci/v3.sh" | bash -s install ;;
-        6) bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh) ;;
-        7) apt update -y && apt upgrade -y && apt install git -y && git clone https://github.com/slobys/SSL-Renewal.git /tmp/acme && mv /tmp/acme/* /root && bash acme_2.0.sh ;;
-        8) bash <(wget -qO- --no-check-certificate https://gitlab.com/spiritysdx/Oracle-server-keep-alive-script/-/raw/main/oalive.sh) ;;
+		6) bash <(curl -Ls https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh) ;;
+		7) apt update -y && apt upgrade -y && apt install git -y && git clone https://github.com/slobys/SSL-Renewal.git /tmp/acme && mv /tmp/acme/* /root && bash acme_2.0.sh ;;
+		8) bash <(wget -qO- --no-check-certificate https://gitlab.com/spiritysdx/Oracle-server-keep-alive-script/-/raw/main/oalive.sh) ;;
 		9) wget -q https://yanyu.ltd/https://raw.githubusercontent.com/yanyuwangluo/VIP/main/Scripts/sh/ql.sh -O ql.sh && bash ql.sh ;;
 		10) tcp_up ;; 
-		d) bash <(curl -sSLf https://ailg.ggbond.org/cd2.sh) ;;
-		c)  wget -N git.io/aria2.sh && chmod +x aria2.sh && bash aria2.sh ;;         
-		z) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun  ;;
+                a) bash <(curl -fsSL https://raw.githubusercontent.com/jonssonyan/h-ui/main/install.sh) ;;
+		b) curl -fsSL https://tailscale.com/install.sh | sh ;; 
+		c) wget -N git.io/aria2.sh && chmod +x aria2.sh && bash aria2.sh ;;       
+  		d) bash <(curl -sSLf https://ailg.ggbond.org/cd2.sh) ;;
 		x) bash <(curl -sSL https://linuxmirrors.cn/main.sh);; 
+  		z) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun  ;;
 		0) bash <(curl -fsSL https://raw.githubusercontent.com/Aurora-Admin-Panel/deploy/main/install.sh) ;;
-        a) bash <(curl -fsSL https://raw.githubusercontent.com/jonssonyan/h-ui/main/install.sh) ;;
+
 	esac
 }
 menu
