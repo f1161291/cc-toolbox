@@ -547,7 +547,8 @@ menu(){
 	green "a. H-UI"
   	green "b. tailscale"
  	green "c. aria2 安装"
- 	green "d. cd2 安装 "
+ 	green "d. cd2 安装"
+        red   "e. 脚本更新"
 	green "z. Docker 安装"
 	echo "         "
 	read -p "请输入数字:" NumberInput
@@ -569,7 +570,7 @@ menu(){
 		x) bash <(curl -sSL https://linuxmirrors.cn/main.sh);; 
   		z) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun  ;;
 		0) bash <(curl -fsSL https://raw.githubusercontent.com/Aurora-Admin-Panel/deploy/main/install.sh) ;;
-
+                e) apt update -y && wget -N --no-check-certificate https://raw.githubusercontent.com/f1161291/cc-toolbox/main/tool.sh && chmod +x tool.sh && bash tool.sh ;;
 	esac
 }
 menu
