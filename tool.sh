@@ -548,8 +548,9 @@ menu(){
   	green "b. tailscale"
  	green "c. aria2 安装"
  	green "d. cd2 安装"
-        red   "e. 脚本更新"
+	green "f. CasaOS 安装"
 	green "z. Docker 安装"
+        red   "dd. 脚本更新"
 	echo "         "
 	read -p "请输入数字:" NumberInput
 	case "$NumberInput" in
@@ -567,10 +568,12 @@ menu(){
 		b) curl -fsSL https://tailscale.com/install.sh | sh ;; 
 		c) wget -N git.io/aria2.sh && chmod +x aria2.sh && bash aria2.sh ;;       
   		d) bash <(curl -sSLf https://ailg.ggbond.org/cd2.sh) ;;
+                dd) apt update -y && wget -N --no-check-certificate https://raw.githubusercontent.com/f1161291/cc-toolbox/main/tool.sh && chmod +x tool.sh && bash tool.sh ;;
+                f) wget -qO- https://get.casaos.io | sudo bash ;;
 		x) bash <(curl -sSL https://linuxmirrors.cn/main.sh);; 
   		z) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun  ;;
 		0) bash <(curl -fsSL https://raw.githubusercontent.com/Aurora-Admin-Panel/deploy/main/install.sh) ;;
-                e) apt update -y && wget -N --no-check-certificate https://raw.githubusercontent.com/f1161291/cc-toolbox/main/tool.sh && chmod +x tool.sh && bash tool.sh ;;
+              
 	esac
 }
 menu
