@@ -542,7 +542,6 @@ menu(){
 	green "8. 性能测试"
 	green "9. 青龙面板"
 	green "10. TCP调优"
-	green "x. 一键换源"
 	green "0. 极光面板"
 	green "a. H-UI"
   	green "b. tailscale"
@@ -550,6 +549,7 @@ menu(){
  	green "d. cd2 安装"
 	green "f. CasaOS 安装"
 	green "z. Docker 安装"
+ 	green "x. 一键换源"
         red   "dd. 脚本更新"
 	echo "         "
 	read -p "请输入数字:" NumberInput
