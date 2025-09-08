@@ -547,6 +547,7 @@ menu(){
   	green "b. tailscale"
  	green "c. aria2 安装"
  	green "d. cd2 安装"
+   	green "e. Rclone安装"
 	green "f. CasaOS 安装"
 	green "z. Docker 安装"
  	green "x. 一键换源"
@@ -568,6 +569,7 @@ menu(){
 		b) curl -fsSL https://tailscale.com/install.sh | sh ;; 
 		c) wget -N git.io/aria2.sh && chmod +x aria2.sh && bash aria2.sh ;;       
   		d) bash <(curl -sSLf https://ailg.ggbond.org/cd2.sh) ;;
+	    e) sudo -v ; curl https://rclone.org/install.sh | sudo bash ;;
                 dd) apt update -y && wget -N --no-check-certificate https://raw.githubusercontent.com/f1161291/cc-toolbox/main/tool.sh && chmod +x tool.sh && bash tool.sh ;;
                 f) wget -qO- https://get.casaos.io | sudo bash ;;
 		x) bash <(curl -sSL https://linuxmirrors.cn/main.sh);; 
