@@ -569,7 +569,7 @@ menu(){
 		b) curl -fsSL https://tailscale.com/install.sh | sh ;; 
 		c) wget -N git.io/aria2.sh && chmod +x aria2.sh && bash aria2.sh ;;       
   		d) bash <(curl -sSLf https://ailg.ggbond.org/cd2.sh) ;;
-	    e) sudo -v ; curl https://rclone.org/install.sh | sudo bash ;;
+	    e) curl https://rclone.org/install.sh | sudo bash ;;
         f) wget -qO- https://get.casaos.io | sudo bash ;;
 		x) bash <(curl -sSL https://linuxmirrors.cn/main.sh);; 
   		z) curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun  ;;
